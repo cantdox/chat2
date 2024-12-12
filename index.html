@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Tab</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f4f4f4;
+            overflow: hidden;
+        }
+        
+        .big-text {
+            font-size: 50px;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+        
+        .small-text {
+            font-size: 20px;
+            margin-top: 5px;
+            color: #555;
+        }
+        
+        .iframe-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(80vh - 60px);
+        }
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Button styling */
+        .fps-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            z-index: 10;
+        }
+
+        .fps-button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="big-text">chat room #1</div>
+    <div class="small-text">made by hamid - saiful is a fat monkey</div>
+
+    <div class="iframe-container">
+        <iframe src="https://deadsimplechat.com/XecYuyjYa"></iframe>
+    </div>
+
+    <!-- Show FPS Button -->
+    <button class="fps-button" id="showFPSButton">Show FPS</button>
+
+    <script>
+        document.getElementById('showFPSButton').addEventListener('click', function() {
+            var script = document.createElement('script');
+            script.onload = function() {
+                var stats = new Stats();
+                document.body.appendChild(stats.dom);
+                requestAnimationFrame(function loop() {
+                    stats.update();
+                    requestAnimationFrame(loop);
+                });
+            };
+            script.src = 'https://mrdoob.github.io/stats.js/build/stats.min.js';
+            document.head.appendChild(script);
+        });
+    </script>
+
+</body>
+</html>
