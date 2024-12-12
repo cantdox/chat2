@@ -73,7 +73,7 @@
 </head>
 <body>
 
-    <div class="big-text">chat room #2</div>
+    <div class="big-text" id="typewriterText">chat room #2</div>
     <div class="small-text">made by hamid - saiful is a fat monkey</div>
 
     <div class="iframe-container">
@@ -90,6 +90,58 @@
     <button class="craft-button" id="craftButton">Craft</button>
 
     <script>
+        // Typewriter effect functionality
+        const messages = [
+            "chat room #2", 
+            "Welcome to the chat!", 
+            "Type your message below", 
+            "Hamid is a genius", 
+            "Saiful is a great friend", 
+            "Let's have fun", 
+            "Type faster, please", 
+            "You are awesome!", 
+            "Enjoy chatting", 
+            "The bot is ready", 
+            "Message me anytime", 
+            "Coding is cool", 
+            "What’s your favorite color?", 
+            "What’s your favorite movie?", 
+            "Have a great day!"
+        ];
+
+        let messageIndex = 0;
+        let charIndex = 0;
+        let currentMessage = '';
+        const typingSpeed = 100;
+        const erasingSpeed = 50;
+        const changeDelay = 1500;
+
+        function typeMessage() {
+            if (charIndex < messages[messageIndex].length) {
+                currentMessage += messages[messageIndex].charAt(charIndex);
+                document.getElementById('typewriterText').textContent = currentMessage;
+                charIndex++;
+                setTimeout(typeMessage, typingSpeed);
+            } else {
+                setTimeout(eraseMessage, changeDelay);
+            }
+        }
+
+        function eraseMessage() {
+            if (charIndex > 0) {
+                currentMessage = currentMessage.slice(0, -1);
+                document.getElementById('typewriterText').textContent = currentMessage;
+                charIndex--;
+                setTimeout(eraseMessage, erasingSpeed);
+            } else {
+                messageIndex = (messageIndex + 1) % messages.length;
+                setTimeout(typeMessage, typingSpeed);
+            }
+        }
+
+        // Start the typewriter effect
+        setTimeout(typeMessage, changeDelay);
+
         // Show FPS button functionality
         document.getElementById('showFPSButton').addEventListener('click', function() {
             var script = document.createElement('script');
