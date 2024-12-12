@@ -44,6 +44,7 @@
         .fps-button, .click-me-button {
             position: absolute;
             top: 20px;
+            right: 20px;
             padding: 10px 20px;
             background-color: #333;
             color: white;
@@ -54,12 +55,9 @@
             z-index: 10;
         }
 
-        .fps-button {
-            top: 20px;  /* Place the "Show FPS" button higher */
-        }
-
+        /* Adjust the second button to be below the first one */
         .click-me-button {
-            top: 80px;  /* Position the "Click Me" button below the FPS button */
+            top: 60px; /* Move it lower to fit under the first button */
         }
 
         .fps-button:hover, .click-me-button:hover {
