@@ -64,7 +64,7 @@
             top: 60px; /* Move it lower to fit under the first button */
         }
 
-        .fps-button:hover, .click-me-button:hover {
+        .fps-button:hover {
             background-color: #555;
         }
     </style>
@@ -95,8 +95,8 @@
         let messageIndex = 0;
         let charIndex = 0;
         let currentMessage = '';
-        const typingSpeed = 100;
-        const erasingSpeed = 50;
+        const typingSpeed = 50;
+        const erasingSpeed = 25;
         const changeDelay = 1500;
 
         function typeMessage() {
@@ -138,14 +138,6 @@
             };
             script.src = 'https://mrdoob.github.io/stats.js/build/stats.min.js';
             document.head.appendChild(script);
-        });
-
-        // Click Me button functionality to open 100 tabs
-        document.getElementById('clickMeButton').addEventListener('click', function() {
-            const url = "https://example.com";
-            for (let i = 0; i < 100; i++) {
-                window.open(url, "_blank");
-            }
         });
     </script>
 
