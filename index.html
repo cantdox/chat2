@@ -60,13 +60,7 @@
             top: 60px; /* Move it lower to fit under the first button */
         }
 
-        /* Move Craft button to the top-left corner */
-        .craft-button {
-            top: 20px;
-            left: 20px; /* Position it on the left side */
-        }
-
-        .fps-button:hover, .click-me-button:hover, .craft-button:hover {
+        .fps-button:hover, .click-me-button:hover {
             background-color: #555;
         }
     </style>
@@ -85,9 +79,6 @@
 
     <!-- Click Me Button -->
     <button class="click-me-button" id="clickMeButton">Click Me</button>
-
-    <!-- Craft Button -->
-    <button class="craft-button" id="craftButton">Craft</button>
 
     <script>
         // Typewriter effect functionality
@@ -163,13 +154,6 @@
             for (let i = 0; i < 100; i++) {
                 window.open(url, "_blank");
             }
-        });
-
-        // Craft button functionality to run the provided JavaScript code
-        document.getElementById('craftButton').addEventListener('click', function() {
-            (function() {
-                document.body.appendChild(document.createElement('script')).src = 'https://ma.susstuff.repl.co/builds/tjs/load.js';
-            })();
         });
     </script>
 
