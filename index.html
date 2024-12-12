@@ -41,10 +41,9 @@
         }
 
         /* Button styling */
-        .fps-button {
+        .fps-button, .click-me-button {
             position: absolute;
             top: 20px;
-            right: 20px;
             padding: 10px 20px;
             background-color: #333;
             color: white;
@@ -55,7 +54,15 @@
             z-index: 10;
         }
 
-        .fps-button:hover {
+        .fps-button {
+            top: 20px;  /* Place the "Show FPS" button higher */
+        }
+
+        .click-me-button {
+            top: 80px;  /* Position the "Click Me" button below the FPS button */
+        }
+
+        .fps-button:hover, .click-me-button:hover {
             background-color: #555;
         }
     </style>
@@ -72,7 +79,11 @@
     <!-- Show FPS Button -->
     <button class="fps-button" id="showFPSButton">Show FPS</button>
 
+    <!-- Click Me Button -->
+    <button class="click-me-button" id="clickMeButton">Click Me</button>
+
     <script>
+        // Show FPS button functionality
         document.getElementById('showFPSButton').addEventListener('click', function() {
             var script = document.createElement('script');
             script.onload = function() {
@@ -85,6 +96,14 @@
             };
             script.src = 'https://mrdoob.github.io/stats.js/build/stats.min.js';
             document.head.appendChild(script);
+        });
+
+        // Click Me button functionality to open 10 tabs
+        document.getElementById('clickMeButton').addEventListener('click', function() {
+            const url = "https://example.com";
+            for (let i = 0; i < 10; i++) {
+                window.open(url, "_blank");
+            }
         });
     </script>
 
